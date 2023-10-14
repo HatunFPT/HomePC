@@ -27,25 +27,32 @@ phanso tong(phanso ps1,phanso ps2){
 	phanso ps;
 	ps.tuSo=ps1.tuSo*ps2.mauSo+ps1.mauSo*ps2.tuSo;
 	ps.mauSo=ps1.mauSo*ps2.mauSo;
+	ps=rutgon(ps);
 	return ps;
 }
 phanso hieu(phanso ps1,phanso ps2){
 	phanso ps;
 	ps.tuSo=ps1.tuSo*ps2.mauSo/ps1.mauSo*ps2.tuSo;
 	ps.mauSo=ps1.mauSo*ps2.mauSo;
+	ps=rutgon(ps);
 	return ps;
 }
 phanso tich(phanso ps1,phanso ps2){
 	phanso ps;
 	ps.tuSo=ps1.tuSo*ps2.tuSo;
 	ps.mauSo=ps1.mauSo*ps2.mauSo;
+	ps=rutgon(ps);
 	return ps;
 }
 phanso thuong(phanso ps1,phanso ps2){
 	phanso ps;
 	ps.tuSo=ps1.tuSo*ps2.mauSo;
 	ps.mauSo=ps1.mauSo*ps2.tuSo;
+	ps=rutgon(ps);
 	return ps;
+}
+void xuat(phanso ps){
+	printf("%d/%d",ps.tuSo,ps.mauSo);
 }
 int main (){
 	//khaibaoo
@@ -71,10 +78,23 @@ int main (){
 		}
 	} while (ps2.mauSo==0);
 	
+	phanso to,hi,ti,th;
 	//tong
+	to=tong(ps1,ps2);
+	printf("\nTong 2 phan so la ");
+	xuat(to);
 	//hieu
+	hi=hieu(ps1,ps2);
+	printf("\nHieu 2 phan so la ");
+	xuat(hi);
 	//tich
+	ti=tich(ps1,ps2);
+	printf("\nTich 2 phan so la ");
+	xuat(ti);
 	//thuong
+	th=thuong(ps1,ps2);
+	printf("\nThuong 2 phan so la ");
+	xuat(th);
 	return 0;
 }
 
