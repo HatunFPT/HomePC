@@ -5,16 +5,13 @@ struct phanso{
 	int tuSo;
 	int mauSo;
 };
-int ucln(int n,int m){
-	int a=n,b=m;
-	while(a!=b){
-		if(a>b){
-			a-=b;
-		} else{
-			b-=a;
-		}
-	}
-	return a;
+
+int ucln(int a, int b) {
+    if (b == 0) {
+        return a;
+    } else {
+        return ucln(b, a % b);
+    }
 }
 phanso rutgon(phanso ps1){
 	phanso ps;
@@ -32,7 +29,7 @@ phanso tong(phanso ps1,phanso ps2){
 }
 phanso hieu(phanso ps1,phanso ps2){
 	phanso ps;
-	ps.tuSo=ps1.tuSo*ps2.mauSo/ps1.mauSo*ps2.tuSo;
+	ps.tuSo=ps1.tuSo*ps2.mauSo-ps1.mauSo*ps2.tuSo;
 	ps.mauSo=ps1.mauSo*ps2.mauSo;
 	ps=rutgon(ps);
 	return ps;
@@ -51,7 +48,7 @@ phanso thuong(phanso ps1,phanso ps2){
 	ps=rutgon(ps);
 	return ps;
 }
-void xuat(phanso ps){
+void xuatps(phanso ps){
 	printf("%d/%d",ps.tuSo,ps.mauSo);
 }
 int main (){
@@ -82,19 +79,19 @@ int main (){
 	//tong
 	to=tong(ps1,ps2);
 	printf("\nTong 2 phan so la ");
-	xuat(to);
+	xuatps(to);
 	//hieu
 	hi=hieu(ps1,ps2);
 	printf("\nHieu 2 phan so la ");
-	xuat(hi);
+	xuatps(hi);
 	//tich
 	ti=tich(ps1,ps2);
 	printf("\nTich 2 phan so la ");
-	xuat(ti);
+	xuatps(ti);
 	//thuong
 	th=thuong(ps1,ps2);
 	printf("\nThuong 2 phan so la ");
-	xuat(th);
+	xuatps(th);
 	return 0;
 }
 

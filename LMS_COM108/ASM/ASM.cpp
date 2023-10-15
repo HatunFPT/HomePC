@@ -1,6 +1,27 @@
 #include <stdio.h>
 #include <math.h>
-
+int checkSoNguyen(float n){
+	if(n==(int)n){
+		return 1;
+	} else{
+		return 0;
+	}
+}
+int checkSoNguyenTo(int n){
+	if(n<1){
+		return 0;
+	}
+	else {
+		int check=1;
+		for(int i=2; i<n; i++){
+			if((int)n% i == 0){
+				check=0;
+				break;
+			}
+		}
+		return check;
+	}
+}
 int main()
 {
     // Khai bao
@@ -28,42 +49,28 @@ int main()
     {
         printf("\nChuc mung ban da chon thanh cong chuc nang so 1: \n\tKiem tra so nguyen");
         //Khai bao
-        int n;
+        float n;
         int dem;
         //Nhapxuat
-        printf("\nNhap vao 1 so nguyen: ");
-        scanf("%d", &n);
-        // check so nguyen
-        if (n == (int)n)
-            printf("\n%d la so nguyen.", n);
-        else
-            printf("\n%d khong la so nguyen", n);
-        // check so nguyen to
-        int check=1;
-		if(n<1){
-			printf("\n%d khong phai la so nguyen to.",n);
-		}
-		else {
-			for(int i=2; i<n; i++){
-				if(n% i == 0){
-					check=0;
-					break;
-				}
+        do{
+        	printf("\nNhap vao 1 so nguyen: ");
+        	scanf("%f", &n);
+        	if(n!=(int)n){
+        		printf("Loi roi. Moi nhap so nguyen.");
 			}
-			if(check == 1){
-				printf("\n%d la so nguyen to.",n);
+		} while (n!=(int)n);
+        printf("\nBan vua nhap so nguyen %.0f",n);
+			if(checkSoNguyenTo((int)n) == 1){
+				printf("\n%.0f la so nguyen to.",n);
 			} 
 			else
-				printf("\n%d khong phai la so nguyen to.",n);
-		}
+				printf("\n%.0f khong phai la so nguyen to.",n);
         // check so chinh phuong
         
-            if (sqrt(n) == (int)sqrt(n))
-                printf("\n%d la chinh phuong.", n);
+            if (checkSoNguyen(sqrt(n))==1)
+                printf("\n%.0f la chinh phuong.", n);
             else
-                printf("\n%d khong la chinh phuong.", n);
-        
-
+                printf("\n%.0f khong la chinh phuong.", n);
         break;
     }
     // Chuc nang 2
@@ -369,7 +376,7 @@ int main()
         float tienlai;
         for(int i=1;i<=12;i++){
         	printf("\nThang %d so tien ban can phai thanh toan la: %d");
-        	tienlai=
+        	//tienlai=
 		}
         
         break;

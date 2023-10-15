@@ -6,7 +6,7 @@
 int nhapTrongKhoang(int n,int m){
 	int num;
 	do{
-		printf("\nMoi nhap so may man: ");
+		printf("\nMoi nhap so may man trong khoang %d - %d:",n,m );
 		scanf("%d",&num);
 		if(num<n || num >m){
 			printf("Loi roi. So phai nam trong khoang tu %d - %d. Nhap lai!\n",n,m);
